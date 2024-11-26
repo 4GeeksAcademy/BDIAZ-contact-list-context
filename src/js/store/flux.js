@@ -105,6 +105,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 					  console.log(error);
 				  });
 			
+			},
+			deleteContact: (id) => {
+				console.log("-----------deleteContact----------------")
+				fetch(`https://playground.4geeks.com/contact/agendas/bdiaz/contacts/${id}`, {
+					method: "DELETE",
+					headers: {
+					  "Content-Type": "application/json"
+					}
+				  })
+				  .then(resp => {
+					  console.log(`resp.status:` , resp.status, `resp.statusText:`, resp.statusText); 
+					  console.log("Data:", resp);
+					  console.log("Contacto Eliminado");
+					  getActions().getAgenda()
+					  return resp; 
+				  })
+				  .catch(error => {
+					  console.log(error);
+				  });
+			
 			}
 		}
 	};

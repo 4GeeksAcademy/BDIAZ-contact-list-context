@@ -30,6 +30,7 @@ export const Home = () => {
                     store.contacts.map((contact) => {
                         return (
                         <Card key={contact.id} 
+                            id={contact.id} 
                             name={contact.name} 
                             direction={contact.address} 
                             email={contact.email}

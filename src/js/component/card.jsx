@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+
+import { Context } from "../store/appContext";
+
 
 export const Card = (props) => {
+    const { store, actions } = useContext(Context);
 
     return (
         <div className="row">
@@ -26,7 +30,7 @@ export const Card = (props) => {
                         <button className="btn btn-link">Edit</button>
                     </div>
                     <div className="col-md-1 d-flex align-items-center">
-                        <button className="btn btn-link text-danger">Delete</button>
+                        <button className="btn btn-link text-danger" onClick={() => actions.deleteContact(props.id)}>Delete</button>
                     </div>
                 </div>
             </div>
