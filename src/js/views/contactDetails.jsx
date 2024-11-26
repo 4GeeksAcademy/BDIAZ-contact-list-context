@@ -13,7 +13,7 @@ export const ContactDetails = props => {
 			<Form />
 			<Link to="/">
 				<span className="" href="#" role="button">
-					or Back home
+					or get back to contacts
 				</span>
 			</Link>
 		</div>
