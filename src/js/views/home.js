@@ -19,7 +19,24 @@ export const Home = () => {
                     </Link>
                 </div>
             </div>
-            <Card name="Name" direction="Direction" email="Email"/>
+            {
+                store.contacts.length === 0 
+                ? (
+                    <p >
+                        No contacts to show
+                    </p>
+                )
+                : (
+                    store.contacts.map((contact) => {
+                        return (
+                        <Card key={contact.id} 
+                            name={contact.name} 
+                            direction={contact.address} 
+                            email={contact.email}
+                        />)
+                    })
+                )
+            }
         </div>
     );
 };
