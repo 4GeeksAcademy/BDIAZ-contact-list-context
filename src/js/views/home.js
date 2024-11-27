@@ -14,7 +14,7 @@ export const Home = () => {
         <div className="container mt-5">
             <div className="row mb-3">
                 <div className="col-12 text-end">
-                    <Link to={"/contactDetails/1"}>
+                    <Link to={"/contactDetails/0"}>
                         <button className="btn btn-primary">Add contact</button>
                     </Link>
                 </div>

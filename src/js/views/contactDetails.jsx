@@ -20,6 +20,10 @@ export const ContactDetails = props => {
         navigate("/"); 
     }
 
+	console.log("params.theid: ", params.theid)
+	let contact = store.contacts.find((contact) => contact.id == params.theid)
+	console.log("contact ", contact)
+
 	return (
 		<div className="container">
 			<h1 className="text-center">Add Contact</h1>

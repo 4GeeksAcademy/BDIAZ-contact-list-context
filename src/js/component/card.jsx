@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 
@@ -27,7 +27,9 @@ export const Card = (props) => {
                         </div>
                     </div>
                     <div className="col-md-1 d-flex align-items-center">
-                        <button className="btn btn-link">Edit</button>
+                        <Link to={`/contactDetails/${props.id}`}>
+                            <button className="btn btn-link">Edit</button>
+                        </Link>
                     </div>
                     <div className="col-md-1 d-flex align-items-center">
                         <button className="btn btn-link text-danger" onClick={() => actions.deleteContact(props.id)}>Delete</button>
