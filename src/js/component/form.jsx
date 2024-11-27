@@ -5,38 +5,20 @@ import { Context } from "../store/appContext";
 
 export const Form = (props) => {
     const { store, actions } = useContext(Context);
-	const [tasks, setTasks] = useState([{label: "No tasks here, add tasks"}]);
-	
-    const [name, setName] = useState("");
-    const [phone, setPhone] = useState("");
-    const [email, setEmail] = useState("");
-    const [address, setAddress] = useState("");
 
 	const getName = (event) => {
-        setName(event.target.value)
+        store.newContact.name = event.target.value;
 	}
     const getPhone = (event) => {
-        setPhone(event.target.value)
+        store.newContact.phone = event.target.value;
 	}
     const getEmail = (event) => {
-        setEmail(event.target.value)
+        store.newContact.email = event.target.value;
 	}
     const getAddress = (event) => {
-        setAddress(event.target.value)
+        store.newContact.address = event.target.value;
 
 	}
-    const createContact = () => {
-        const contact = {
-            name: name,
-            phone: phone,
-            email: email,
-            address: address
-        };
-        console.log("newContact:", contact)
-        actions.addContact(contact)
-        // CHECAR return <Redirect to='/' />
-	}
-
 
     return (
         <form>
@@ -56,7 +38,7 @@ export const Form = (props) => {
                 <input type="text" className="form-control" id="address" placeholder="Password" onChange={getAddress}/>
                 <label for="address">Address</label>
             </div>
-            <button className="btn btn-primary w-100" onClick={createContact}>Submit</button>
+
         </form>
     );
 };
