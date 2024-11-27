@@ -8,7 +8,6 @@ export const ContactDetails = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	const navigate = useNavigate(); 
-    const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const [formValues, setFormValues] = useState({
         name: "",
@@ -48,10 +47,6 @@ export const ContactDetails = props => {
         actions.updateContact(formValues, params.theid); // Usa los valores del formulario
         navigate("/"); 
     };
-
-	if (isSubmitting) {
-        navigate("/"); 
-    }
 
 	return (
 		<div className="container">
