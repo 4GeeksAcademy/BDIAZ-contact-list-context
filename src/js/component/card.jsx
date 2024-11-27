@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Context } from "../store/appContext";
 
 
-export const Card = (props) => {
-    const { store, actions } = useContext(Context);
+export const Card = ({ id, name, direction, email, onDelete }) => {
 
     return (
         <div className="row">
@@ -19,20 +17,20 @@ export const Card = (props) => {
                     </div>
                     <div className="col-md-6">
                         <div className="card-body">
-                            <h5 className="card-title">{props.name}</h5>
-                            <p className="card-text">{props.direction}</p>
+                            <h5 className="card-title">{name}</h5>
+                            <p className="card-text">{direction}</p>
                             <p className="card-text">
-                                <small className="text-muted">{props.email}</small>
+                                <small className="text-muted">{email}</small>
                             </p>
                         </div>
                     </div>
                     <div className="col-md-1 d-flex align-items-center">
-                        <Link to={`/contactDetails/${props.id}`}>
+                        <Link to={`/contactDetails/${id}`}>
                             <button className="btn btn-link">Edit</button>
                         </Link>
                     </div>
                     <div className="col-md-1 d-flex align-items-center">
-                        <button className="btn btn-link text-danger" onClick={() => actions.deleteContact(props.id)}>Delete</button>
+                        <button className="btn btn-link text-danger" onClick={() => onDelete(id)}>Delete</button>
                     </div>
                 </div>
             </div>
