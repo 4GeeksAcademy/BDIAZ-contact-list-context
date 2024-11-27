@@ -1,40 +1,36 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../store/appContext";
+import React from "react";
 
 
-export const Form = (props) => {
-    const { store, actions } = useContext(Context);
-
-	const getName = (event) => {
-        store.newContact.name = event.target.value;
-	}
-    const getPhone = (event) => {
-        store.newContact.phone = event.target.value;
-	}
-    const getEmail = (event) => {
-        store.newContact.email = event.target.value;
-	}
-    const getAddress = (event) => {
-        store.newContact.address = event.target.value;
-
-	}
+export const Form = ({ values, onChange }) => {
 
     return (
         <form>
             <div className="form-floating mb-3">
-                <input type="text" className="form-control" id="name" placeholder="Full Name" onChange={getName}/>
+                <input type="text" className="form-control" id="name" 
+                    onChange={(e) => onChange("name", e.target.value)}
+                    value={values.name || ""}
+                />
                 <label for="name">Full name</label>
             </div>
             <div className="form-floating mb-3">
-                <input type="email" className="form-control" id="email" placeholder="name@example.com" onChange={getEmail}/>
+                <input type="email" className="form-control" id="email"
+                    onChange={(e) => onChange("email", e.target.value)}
+                    value={values.email || ""}
+                />
                 <label for="email">Email</label>
             </div>
             <div className="form-floating mb-3">
-                <input type="number" className="form-control" id="phone" placeholder="Password" onChange={getPhone}/>
+                <input type="number" className="form-control" id="phone"
+                    onChange={(e) => onChange("phone", e.target.value)}
+                    value={values.phone || ""}
+                />
                 <label for="phone">Phone</label>
             </div>
             <div className="form-floating mb-3">
-                <input type="text" className="form-control" id="address" placeholder="Password" onChange={getAddress}/>
+                <input type="text" className="form-control" id="address"
+                    onChange={(e) => onChange("address", e.target.value)}
+                    value={values.address || ""}
+                />
                 <label for="address">Address</label>
             </div>
 

@@ -149,7 +149,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 					  console.log(error);
 				  });
 			
-			}
+			},
+			updateContact: (contact, id) => {
+				console.log("-----------uodateContact----------------")
+				console.log("contact", contact)
+				fetch(`https://playground.4geeks.com/contact/agendas/bdiaz/contacts/${id}`, {
+					method: "PUT",
+					body: JSON.stringify({
+						name: contact.name,
+						phone: contact.phone,
+						email: contact.email,
+						address: contact.address
+					}),
+					headers: {
+					  "Content-Type": "application/json",
+					  "accept": "application/json"
+					}
+				  })
+				  .then(resp => {
+					  console.log(`resp.status:` , resp.status, `resp.statusText:`, resp.statusText); 
+					  console.log("Data:", resp);
+					  console.log("Contacto editado");
+					  getActions().getAgenda()
+					  return resp;
+				  })
+				  .catch(error => {
+					  console.log(error);
+				  });
+			
+			},
 		}
 	};
 };
