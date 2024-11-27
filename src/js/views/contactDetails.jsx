@@ -17,7 +17,6 @@ export const ContactDetails = props => {
     });
 
 	useEffect(() => {
-        // Si estás en modo edición, precarga los valores del contacto
         if (params.theid && params.theid != 0) {
             const contact = store.contacts.find((contact) => contact.id == params.theid);
             if (contact) {
@@ -38,13 +37,13 @@ export const ContactDetails = props => {
 
     const createContact = () => {
 		console.log("createContact:",formValues)
-        actions.addContact(formValues); // Usa los valores del formulario
+        actions.addContact(formValues); 
         navigate("/"); 
     };
 
     const updateContact = () => {
 		console.log("updateContact:", formValues)
-        actions.updateContact(formValues, params.theid); // Usa los valores del formulario
+        actions.updateContact(formValues, params.theid); 
         navigate("/"); 
     };
 
