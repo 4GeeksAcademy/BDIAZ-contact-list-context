@@ -34,16 +34,16 @@ export const Home = () => {
             <div className="row mb-3">
                 <div className="col-12 text-end">
                     <Link to={"/contactDetails/0"}>
-                        <button className="btn btn-primary">Add contact</button>
+                        <button className="btn btn-primary">Add Contact</button>
                     </Link>
                 </div>
             </div>
             {
                 store.contacts.length === 0 
                 ? (
-                    <p >
-                        No contacts to show
-                    </p>
+                    <h1>
+                        No contacts to show :(
+                    </h1>
                 )
                 : (
                     store.contacts.map((contact) => {
